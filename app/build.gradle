@@ -1,37 +1,128 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+/* Version properties */
+def versionMajor = 0
+def versionMinor = 0
+def versionPatch = 1
+
+def VERSION_CODE = versionMajor * 10000 + versionMinor * 1000 + versionPatch
+def VERSION_NAME = "${versionMajor}.${versionMinor}.${versionPatch}"
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
 
     defaultConfig {
-        applicationId "com.unrevealedinc.myplaces"
-        minSdkVersion 16
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId "com.unrevealedinc.myplaces"
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
+
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
-        release {
+        debug {
+            debuggable true
             minifyEnabled false
+            shrinkResources false
+            manifestPlaceholders = [screenOrientation: "unspecified"]
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            manifestPlaceholders = [screenOrientation: "portrait"]
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "productFlavor"
+    productFlavors {
+        dev {
+            dimension 'productFlavor'
+            applicationId "com.unrevealedinc.myplaces.dev"
+            versionCode VERSION_CODE
+            versionName android.defaultConfig.versionName
+            buildConfigField "String", "DATABASE_PREFIX", '""'
+            buildConfigField "String", "API_URL", '"https://api.opentripmap.com/0.1/en/places/"'
+            buildConfigField "String", "API_VERSION", '"v1"'
+            buildConfigField "String", "API_PREFFIX", '"/"'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding {
+            enabled = true
         }
     }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    def appDependencies = rootProject.ext.appDependencies
 
+    /* Core */
+    implementation appDependencies.kotlinStdlib
+    implementation appDependencies.kotlinReflect
+    implementation appDependencies.kotlinxCoroutinesCore
+
+    /* DI */
+    implementation appDependencies.koinCore
+    implementation appDependencies.koinAndroid
+    implementation appDependencies.koinViewModel
+
+    /* UI */
+    implementation appDependencies.coreKtx
+    implementation appDependencies.fragmentKtx
+    implementation appDependencies.navigationKtx
+    implementation appDependencies.navigationFragmentKtx
+
+    implementation appDependencies.ankoCore
+    implementation appDependencies.ankoDesign
+    implementation appDependencies.ankoCardView
+
+    implementation appDependencies.appCompat
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.viewPager
+    implementation appDependencies.materialDesign
+
+    implementation appDependencies.expandedLayout
+    implementation appDependencies.lottie
+    implementation appDependencies.circularImageView
+
+    implementation appDependencies.materialProgress
+    implementation appDependencies.adapterDelegate
+    implementation appDependencies.adapterDelegateExtensions
+
+    /* Network */
+    implementation appDependencies.facebook
+    implementation appDependencies.playService
+
+    implementation appDependencies.retrofit2
+    implementation appDependencies.retrofit2GsonConverter
+    implementation appDependencies.okhttpLogging
+    implementation appDependencies.retrofitMoshiConverter
+    kapt appDependencies.moshiKotlinCodegen
+    implementation appDependencies.moshiAdapters
+
+    implementation 'com.google.android.gms:play-services-vision:20.1.2'
+
+    implementation "androidx.activity:activity-ktx:1.2.0-alpha08"
+    implementation "androidx.fragment:fragment-ktx:1.3.0-alpha08"
 }
