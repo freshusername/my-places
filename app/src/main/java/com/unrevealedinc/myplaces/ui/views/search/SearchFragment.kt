@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.unrevealedinc.myplaces.R
 import com.unrevealedinc.myplaces.databinding.FragmentSearchBinding
+import org.jetbrains.anko.AnkoContext
 
 class SearchFragment : Fragment() {
 
@@ -18,8 +19,6 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
-
-        return binding.root
+        return SearchFragmentUI().createView(AnkoContext.create(requireContext(), this))
     }
 }
