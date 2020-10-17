@@ -1,0 +1,135 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    /**
+     * Libraries
+     */
+
+    /* Core */
+    kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
+    kotlinReflect = "org.jetbrains.kotlin:kotlin-reflect"
+    kotlinxCoroutinesCore = 'org.jetbrains.kotlinx:kotlinx-coroutines-core'
+
+    /* DI */
+    koinCore = 'org.koin:koin-core'
+    koinAndroid = 'org.koin:koin-android'
+    koinViewModel = 'org.koin:koin-androidx-viewmodel'
+
+    /* UI */
+    coreKtx = 'androidx.core:core-ktx'
+    fragmentKtx = 'androidx.fragment:fragment-ktx'
+    navigationKtx = 'androidx.navigation:navigation-ui-ktx'
+    navigationFragmentKtx = 'androidx.navigation:navigation-fragment-ktx'
+
+    ankoCore = 'org.jetbrains.anko:anko'
+    ankoDesign = 'org.jetbrains.anko:anko-design'
+    ankoCardView = 'org.jetbrains.anko:anko-cardview-v7'
+
+    appCompat = 'androidx.appcompat:appcompat'
+    constraintLayout = 'androidx.constraintlayout:constraintlayout'
+    viewPager = 'androidx.viewpager2:viewpager2'
+    materialDesign = 'com.google.android.material:material'
+
+    expandedLayout = 'net.cachapa.expandablelayout:expandablelayout'
+    lottie = 'com.airbnb.android:lottie'
+    circularImageView = 'com.mikhaellopez:circularimageview'
+    materialProgress = 'me.zhanghai.android.materialprogressbar:library'
+    adapterDelegate = 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl'
+    adapterDelegateExtensions = 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer'
+
+    /* Network */
+    facebook = 'com.facebook.android:facebook-android-sdk'
+    playService = 'com.google.android.gms:play-services-auth'
+
+    retrofit2 = 'com.squareup.retrofit2:retrofit'
+    retrofit2GsonConverter = 'com.squareup.retrofit2:converter-gson'
+    okhttpLogging = 'com.squareup.okhttp3:logging-interceptor'
+    retrofitMoshiConverter = 'com.squareup.retrofit2:converter-moshi'
+    moshiKotlinCodegen = 'com.squareup.moshi:moshi-kotlin-codegen'
+    moshiAdapters = 'com.squareup.moshi:moshi-adapters'
+
+    /**
+     * Versions
+     */
+
+    /* Core */
+    kotlinStdlibVersion = kotlinVersion
+    kotlinReflectVersion = kotlinVersion
+    kotlinxCoroutinesCoreVersion = '1.3.8'
+
+    /* DI */
+    koinVersion = '2.1.6'
+
+    /* UI */
+    coreKtxVersion = '1.3.1'
+    fragmentKtxVersion = '1.2.5'
+    navigationVersion = '2.3.0'
+
+    ankoVersion = '0.10.8'
+
+    appCompatVersion = '1.2.0'
+    constraintLayoutVersion = '2.0.0-beta4'
+    viewPagerVersion = '1.0.0-rc01'
+    materialDesignVersion = '1.0.0'
+
+    expandedLayoutVersion = '2.9.2'
+    lottieVersion = '3.4.0'
+    circularImageViewVersion = '4.2.0'
+    materialProgressVersion = '1.6.1'
+    adapterDelegateVersion = '4.3.0'
+
+    /* Network */
+    facebookVersion = '5.5.1'
+    playServiceVersion = '17.0.0'
+
+    retrofit2Version = '2.9.0'
+    okhttpLoggingVersion = '3.8.1'
+    retrofitMoshiConverterVersion = retrofit2Version
+    moshiKotlinCodegenVersion = '1.8.0'
+    moshiAdaptersVersion = '1.8.0'
+
+    appDependencies = [
+            kotlinStdlib             : "${kotlinStdlib}:${kotlinStdlibVersion}",
+            kotlinReflect            : "${kotlinReflect}:${kotlinReflectVersion}",
+            kotlinxCoroutinesCore    : "${kotlinxCoroutinesCore}:${kotlinxCoroutinesCoreVersion}",
+
+            koinCore:"${koinCore}:${koinVersion}",
+            koinAndroid:"${koinAndroid}:${koinVersion}",
+            koinViewModel:"${koinViewModel}:${koinVersion}",
+
+            coreKtx                  : "${coreKtx}:${coreKtxVersion}",
+            fragmentKtx              : "${fragmentKtx}:${fragmentKtxVersion}",
+            navigationKtx            : "${navigationKtx}:${navigationVersion}",
+            navigationFragmentKtx    : "${navigationFragmentKtx}:${navigationVersion}",
+
+            ankoCore                 : "${ankoCore}:${ankoVersion}",
+            ankoDesign               : "${ankoDesign}:${ankoVersion}",
+            ankoCardView             : "${ankoCardView}:${ankoVersion}",
+
+            appCompat                : "${appCompat}:${appCompatVersion}",
+            materialDesign           : "${materialDesign}:${materialDesignVersion}",
+            viewPager                : "${viewPager}:${viewPagerVersion}",
+            constraintLayout         : "${constraintLayout}:${constraintLayoutVersion}",
+
+            expandedLayout           : "${expandedLayout}:${expandedLayoutVersion}",
+            lottie                   : "${lottie}:${lottieVersion}",
+            circularImageView        : "${circularImageView}:${circularImageViewVersion}",
+            materialProgress         : "${materialProgress}:${materialProgressVersion}",
+            adapterDelegate          : "${adapterDelegate}:${adapterDelegateVersion}",
+            adapterDelegateExtensions: "${adapterDelegateExtensions}:${adapterDelegateVersion}",
+
+            facebook                 : "${facebook}:${facebookVersion}",
+            playService              : "${playService}:${playServiceVersion}",
+
+            retrofit2                : "${retrofit2}:${retrofit2Version}",
+            retrofit2GsonConverter   : "${retrofit2GsonConverter}:${retrofit2Version}",
+            okhttpLogging            : "${okhttpLogging}:${okhttpLoggingVersion}",
+            retrofitMoshiConverter   : "${retrofitMoshiConverter}:${retrofitMoshiConverterVersion}",
+            moshiKotlinCodegen       : "${moshiKotlinCodegen}:${moshiKotlinCodegenVersion}",
+            moshiAdapters            : "${moshiAdapters}:${moshiAdaptersVersion}"
+    ]
+}
