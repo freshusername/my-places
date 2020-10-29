@@ -25,6 +25,9 @@ ext {
     navigationKtx = 'androidx.navigation:navigation-ui-ktx'
     navigationFragmentKtx = 'androidx.navigation:navigation-fragment-ktx'
 
+    /* Logging */
+    timber = 'com.jakewharton.timber:timber'
+
     ankoCore = 'org.jetbrains.anko:anko'
     ankoDesign = 'org.jetbrains.anko:anko-design'
     ankoCardView = 'org.jetbrains.anko:anko-cardview-v7'
@@ -69,6 +72,9 @@ ext {
     fragmentKtxVersion = '1.2.5'
     navigationVersion = '2.3.0'
 
+    /* Logging */
+    timberVersion = '4.7.1'
+
     ankoVersion = '0.10.8'
 
     appCompatVersion = '1.2.0'
@@ -105,6 +111,8 @@ ext {
             fragmentKtx              : "${fragmentKtx}:${fragmentKtxVersion}",
             navigationKtx            : "${navigationKtx}:${navigationVersion}",
             navigationFragmentKtx    : "${navigationFragmentKtx}:${navigationVersion}",
+
+            timber                   : "${timber}:${timberVersion}",
 
             ankoCore                 : "${ankoCore}:${ankoVersion}",
             ankoDesign               : "${ankoDesign}:${ankoVersion}",

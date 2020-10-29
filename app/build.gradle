@@ -93,6 +93,9 @@ dependencies {
     implementation appDependencies.navigationKtx
     implementation appDependencies.navigationFragmentKtx
 
+    /* Logging */
+    implementation appDependencies.timber
+
     implementation appDependencies.ankoCore
     implementation appDependencies.ankoDesign
     implementation appDependencies.ankoCardView
