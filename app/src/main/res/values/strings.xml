@@ -10,4 +10,16 @@
     <string name="place_card_title">NYC Central Park</string>
     <string name="place_card_description">A large park in the center of New York</string>
 
+    <!-- Exceptions -->
+    <string name="exception_something_bag_happened">Something bad happen</string>
+    <string name="exception_internet_connection">You have problem with network connection</string>
+    <string name="exception_unknown_api_response">Some problem with server side response</string>
+    <string name="exception_client_side_error">Some problems on client side</string>
+    <string name="exception_server_side_error">Some problems on server side</string>
+    <string name="exception_facebook_auth_failed">Facebook authentication failed</string>
+    <string name="exception_google_auth_failed">Google authentication failed</string>
+    <string name="exception_no_access">No access</string>
+    <string name="exception_token_is_required">Token is required</string>
+    <string name="exception_parsing_response_error">Parsing API response failed</string>
+
 </resources>
