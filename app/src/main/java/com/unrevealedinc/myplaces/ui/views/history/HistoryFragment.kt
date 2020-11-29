@@ -19,7 +19,6 @@ class HistoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_history, container, false)
-
         return binding.root
     }
 }

@@ -1,4 +1,4 @@
-package com.unrevealedinc.myplaces.ui.views.search
+package com.unrevealedinc.myplaces.ui.views.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,17 +7,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.unrevealedinc.myplaces.R
-import com.unrevealedinc.myplaces.databinding.FragmentSearchBinding
+import com.unrevealedinc.myplaces.databinding.FragmentSettingsBinding
 
-class SearchFragment : Fragment() {
+class SettingsFragment : Fragment() {
 
-    private lateinit var binding: FragmentSearchBinding
+    private lateinit var binding: FragmentSettingsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
-        return binding.root    }
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false)
+        return binding.root
+    }
 }

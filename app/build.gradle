@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 /* Version properties */
 def versionMajor = 0
@@ -24,6 +25,7 @@ android {
         versionName VERSION_NAME
 
         vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -50,8 +52,8 @@ android {
             versionCode VERSION_CODE
             versionName android.defaultConfig.versionName
             buildConfigField "String", "DATABASE_PREFIX", '""'
-            buildConfigField "String", "API_URL", '"https://api.opentripmap.com/0.1/en/places/"'
-            buildConfigField "String", "API_VERSION", '"v1"'
+            buildConfigField "String", "API_URL", '"http://api.places.uninc.fun"'
+            buildConfigField "String", "API_VERSION", '"v0"'
             buildConfigField "String", "API_PREFFIX", '"/"'
         }
     }
@@ -75,17 +77,47 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation 'androidx.room:room-runtime:2.2.5'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //Room
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+
+    def version_glide = "4.8.0"
+    implementation "com.github.bumptech.glide:glide:$version_glide"
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    /* Testing */
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
     def appDependencies = rootProject.ext.appDependencies
 
     /* Core */
     implementation appDependencies.kotlinStdlib
     implementation appDependencies.kotlinReflect
     implementation appDependencies.kotlinxCoroutinesCore
+    implementation appDependencies.kotlinxCoroutinesAndroid
+
+
+    /* Lifecycle */
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     /* DI */
-    implementation appDependencies.koinCore
-    implementation appDependencies.koinAndroid
-    implementation appDependencies.koinViewModel
+    implementation appDependencies.hiltAndroid
+    implementation appDependencies.hiltViewModel
+    kapt 'com.google.dagger:hilt-android-compiler:2.28.1-alpha'
+    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha02"
 
     /* UI */
     implementation appDependencies.coreKtx

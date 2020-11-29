@@ -22,4 +22,10 @@
     <string name="exception_token_is_required">Token is required</string>
     <string name="exception_parsing_response_error">Parsing API response failed</string>
 
+    <!-- Scrolling -->
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
