@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.unrevealedinc.myplaces.ui.views.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_placeDetailFragment"
+            app:destination="@id/placeDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookmarksFragment"
+        android:name="com.unrevealedinc.myplaces.ui.views.bookmarks.BookmarksFragment"
+        android:label="BookmarksFragment"
+        tools:layout="@layout/fragment_bookmarks">
+        <action
+            android:id="@+id/action_bookmarksFragment_to_placeDetailFragment"
+            app:destination="@id/placeDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.unrevealedinc.myplaces.ui.views.history.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_historyFragment_to_placeDetailFragment2"
+            app:destination="@id/placeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeDetailFragment"
+        android:name="com.unrevealedinc.myplaces.ui.views.placeDetails.PlaceDetailFragment"
+        android:label="fragment_place_details"
+        tools:layout="@layout/fragment_place_details" />
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.unrevealedinc.myplaces.ui.views.explore.ExploreFragment"
+        android:label="fragment_explore"
+        tools:layout="@layout/fragment_explore" >
+        <action
+            android:id="@+id/action_exploreFragment_to_placeDetailFragment"
+            app:destination="@id/placeDetailFragment" />
+    </fragment>
+
+</navigation>
