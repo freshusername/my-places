@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.unrevealedinc.myplaces.data.entities.Place
 
-@Database(entities = [Place::class], version = 2, exportSchema = false)
+@Database(entities = [Place::class], version = 3, exportSchema = false)
 abstract class PlacesDb : RoomDatabase() {
 
     abstract fun placesDao(): PlacesDao

@@ -19,7 +19,7 @@ interface PlacesDao {
     fun getAllPlaces(): LiveData<List<Place>>
 
     @Query("SELECT * FROM tblPlaces WHERE id = :id")
-    fun getPlace(id: Int): LiveData<Place>
+    fun getPlace(id: Long): LiveData<Place>
 
     @Query("delete from tblPlaces")
     fun deleteAll()

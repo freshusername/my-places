@@ -1,6 +1,6 @@
 package com.unrevealedinc.myplaces.data.remote.dataobjects
 
 data class Location(
-    val lat: Long = 0L,
-    val lng: Long = 0L
+    val lat: Double = 0.0,
+    val lng: Double = 0.0
 )

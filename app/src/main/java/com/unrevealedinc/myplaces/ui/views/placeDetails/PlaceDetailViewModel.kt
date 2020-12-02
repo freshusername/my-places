@@ -13,15 +13,15 @@ class PlaceDetailViewModel @ViewModelInject constructor(
     private val repository: PlacesRepository
 ) : ViewModel() {
 
-    private val _id = MutableLiveData<Int>()
+    private val _id = MutableLiveData<Long>()
 
     private val _place  = _id.switchMap { id ->
         repository.getPlace(id)
     }
-    val place: LiveData<Resource<Place>> = _place
+    var place: LiveData<Resource<Place>> = _place
 
 
-    fun start(id: Int) {
+    fun start(id: Long) {
         _id.value = id
     }
 }
