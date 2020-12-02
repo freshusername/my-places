@@ -8,5 +8,5 @@ class PlacesRemoteDataSource @Inject constructor(
 
     //TODO: placesService.getAllPlaces().body()?.asDomainModel()
     suspend fun getPlaces() = getResult { placesService.getAllPlaces()}
-    suspend fun getPlace(id: Int) = getResult { placesService.getPlace(id) }
+    suspend fun getPlace(id: Long) = getResult { placesService.getPlace(id) }
 }

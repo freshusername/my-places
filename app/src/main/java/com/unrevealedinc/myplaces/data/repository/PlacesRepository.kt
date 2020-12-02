@@ -10,7 +10,7 @@ class PlacesRepository @Inject constructor(
     private val localDataSource: PlacesDao
 ) {
 
-    fun getPlace(id: Int) = performGetOperation(
+    fun getPlace(id: Long) = performGetOperation(
         databaseQuery = { localDataSource.getPlace(id) },
         networkCall = { remoteDataSource.getPlace(id) },
         saveCallResult = { localDataSource.insert(it) }

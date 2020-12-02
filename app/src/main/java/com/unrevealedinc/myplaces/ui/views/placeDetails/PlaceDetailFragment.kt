@@ -8,12 +8,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.example.rickandmorty.utils.autoCleared
 import com.unrevealedinc.myplaces.data.entities.Place
 import com.unrevealedinc.myplaces.databinding.FragmentPlaceDetailsBinding
 import com.unrevealedinc.myplaces.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.content_place_details.view.*
+import kotlinx.android.synthetic.main.fragment_explore.view.*
+import kotlinx.android.synthetic.main.fragment_place_details.view.*
 
 @AndroidEntryPoint
 class PlaceDetailFragment : Fragment() {
@@ -31,7 +34,7 @@ class PlaceDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.getInt("id")?.let { viewModel.start(it) }
+        arguments?.getLong("id")?.let { viewModel.start(it) }
         setupObservers()
     }
 

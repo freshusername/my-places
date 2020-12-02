@@ -54,13 +54,23 @@ class PlaceViewHolder(
     fun bind(item: Place) {
         this.place = item
         itemBinding.name.text = item.name
-        itemBinding.typeAndStatus.text = """${item.type} - ${item.isOpen}"""
 
-        val uri = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + item.photoReference + "&key="
+        var placeIsOpen = "Open"
+        if(!item.isOpen)
+            placeIsOpen = "Closed"
+
+        itemBinding.typeAndStatus.text = "${item.type} - $placeIsOpen"
+
+        val uri = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=" + item.photoReference + "&key="
+        val icon = item.icon
 
         Glide.with(itemBinding.root)
             .load(uri)
             .into(itemBinding.image)
+
+        Glide.with(itemBinding.root)
+            .load(icon)
+            .into(itemBinding.icon)
     }
 
     override fun onClick(v: View?) {
