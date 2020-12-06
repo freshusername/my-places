@@ -15,8 +15,6 @@ import com.unrevealedinc.myplaces.databinding.FragmentPlaceDetailsBinding
 import com.unrevealedinc.myplaces.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.content_place_details.view.*
-import kotlinx.android.synthetic.main.fragment_explore.view.*
-import kotlinx.android.synthetic.main.fragment_place_details.view.*
 
 @AndroidEntryPoint
 class PlaceDetailFragment : Fragment() {
@@ -61,11 +59,13 @@ class PlaceDetailFragment : Fragment() {
     //TODO: change props
     private fun bindPlace(place: Place) {
         binding.postContent.place_title.text = place.name
-        binding.postContent.place_location.text = place.type
+        binding.postContent.place_type.text = place.type
         binding.postContent.place_body.text = place.address
-//        binding.postContent.text = place.type
-//        Glide.with(binding.root)
-//            .load(place.image)
-//            .into(binding.image)
+
+        val uri = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=" + place.photoReference + "&key="
+
+        Glide.with(binding.root)
+            .load(uri)
+            .into(binding.mainImage)
     }
 }

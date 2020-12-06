@@ -21,4 +21,10 @@ class PlacesRepository @Inject constructor(
         networkCall = { remoteDataSource.getPlaces() },
         saveCallResult = { localDataSource.insertAll(it.places) }
     )
+
+    fun refreshPlaces() = performGetOperation(
+        databaseQuery = { localDataSource.getAllPlaces() },
+        networkCall = { remoteDataSource.getPlaces() },
+        saveCallResult = { localDataSource.insertAll(it.places) }
+    )
 }

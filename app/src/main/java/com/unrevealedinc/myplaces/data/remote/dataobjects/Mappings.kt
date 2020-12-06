@@ -25,23 +25,6 @@ data class PlaceResponseList(
     val placeResponses: List<PlaceResponse>
 )
 
-/*fun PlaceContainer.asDatabaseModel(): Array<ArchivePlace> {
-    return places.map {
-        ArchivePlace (
-            id = it.id,
-            address = it.address,
-            base64Img = it.base64Photos.firstOrNull()?.src,
-            icon = it.icon,
-            isOpen = it.isOpen,
-            lat = it.location.lat,
-            lng = it.location.lng,
-            modifiedOn = it.modifiedOn,
-            name = it.name,
-            type = it.types.firstOrNull()
-        )
-    }.toTypedArray()
-}*/
-
 fun PlaceContainer.asDomainModel(): List<Place> {
     return places.map {
         Place(
