@@ -23,7 +23,54 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/lorem" />
 
-        <TextView
+        <HorizontalScrollView
+            android:id="@+id/chips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/region_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="@dimen/dimen_16"
+                app:singleSelection="true"
+                app:singleLine="true"
+                android:padding="@dimen/dimen_16">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/first_chip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="110dp"
+                app:chipStartPadding="@dimen/dimen_16"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/place_type_chip_str"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/second_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="150dp"
+                    app:chipStartPadding="@dimen/dimen_16"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="@string/place_type_chip_str"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/third_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="155dp"
+                    app:chipStartPadding="@dimen/dimen_16"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="@string/place_type_chip_str"/>
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <!--<TextView
             android:id="@+id/place_type"
             style="@style/PlaceLocationText"
             android:layout_width="match_parent"
@@ -32,7 +79,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/place_title"
-            tools:text="@tools:sample/cities" />
+            tools:text="@tools:sample/cities" />-->
 
         <TextView
             android:id="@+id/place_body"
@@ -42,7 +89,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/place_type"
+            app:layout_constraintTop_toBottomOf="@+id/chips"
             tools:text="@tools:sample/lorem/random" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

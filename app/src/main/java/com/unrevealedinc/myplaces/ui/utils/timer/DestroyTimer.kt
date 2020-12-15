@@ -6,7 +6,7 @@ import timber.log.Timber
 
 class DestroyTimer (lifecycle: Lifecycle): MyPlacesTimer(lifecycle) {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    /* @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun startTimer(){
         runnable = Runnable {
             secondsCount++
@@ -20,4 +20,5 @@ class DestroyTimer (lifecycle: Lifecycle): MyPlacesTimer(lifecycle) {
     fun stopTimer(){
         handler.removeCallbacks(runnable)
     }
+     */
 }

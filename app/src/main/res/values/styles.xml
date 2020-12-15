@@ -1,13 +1,8 @@
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
 
     <style name="PlaceTitleDetailText">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/textColor</item>
     </style>
 
@@ -21,7 +16,7 @@
     <style name="PlaceBodyText">
         <item name="android:layout_marginTop">@dimen/dimen_16</item>
         <item name="android:textColor">@color/textColor</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:lineSpacingExtra">@dimen/dimen_4</item>
     </style>
 

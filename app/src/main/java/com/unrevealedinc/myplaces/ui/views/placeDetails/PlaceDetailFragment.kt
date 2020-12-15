@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.rickandmorty.utils.autoCleared
+import com.unrevealedinc.myplaces.R
 import com.unrevealedinc.myplaces.data.entities.Place
 import com.unrevealedinc.myplaces.databinding.FragmentPlaceDetailsBinding
 import com.unrevealedinc.myplaces.utils.Resource
@@ -45,8 +46,8 @@ class PlaceDetailFragment : Fragment() {
                     binding.placeCoordlayout.visibility = View.VISIBLE
                 }
 
-                Resource.Status.ERROR ->
-                    Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
+                //Resource.Status.ERROR ->
+                    //Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
 
                 Resource.Status.LOADING -> {
                     binding.progressBar.visibility = View.VISIBLE
@@ -54,12 +55,16 @@ class PlaceDetailFragment : Fragment() {
                 }
             }
         })
+
     }
 
     //TODO: change props
     private fun bindPlace(place: Place) {
         binding.postContent.place_title.text = place.name
-        binding.postContent.place_type.text = place.type
+        //binding.postContent.place_type.text = place.type
+        binding.postContent.first_chip.text = place.type
+        binding.postContent.second_chip.text = "open now: " + place.isOpen.toString()
+        binding.postContent.third_chip.text = "suggested for you"
         binding.postContent.place_body.text = place.address
 
         val uri = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=" + place.photoReference + "&key="
@@ -68,4 +73,5 @@ class PlaceDetailFragment : Fragment() {
             .load(uri)
             .into(binding.mainImage)
     }
+
 }
