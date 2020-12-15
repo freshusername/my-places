@@ -48,5 +48,10 @@
             android:id="@+id/action_exploreFragment_to_placeDetailFragment"
             app:destination="@id/placeDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.unrevealedinc.myplaces.ui.views.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>

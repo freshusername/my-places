@@ -82,7 +82,7 @@ ext {
     appCompatVersion = '1.2.0'
     constraintLayoutVersion = '2.0.0-beta4'
     viewPagerVersion = '1.0.0-rc01'
-    materialDesignVersion = '1.0.0'
+    materialDesignVersion = '1.1.0'
 
     expandedLayoutVersion = '2.9.2'
     lottieVersion = '3.4.0'

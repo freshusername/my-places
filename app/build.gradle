@@ -80,6 +80,10 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    //WorkManager
+    def work_version = "1.0.1"
+    implementation "android.arch.work:work-runtime-ktx:$work_version"
+
     //Room
     def room_version = "2.2.5"
     implementation "androidx.room:room-runtime:$room_version"

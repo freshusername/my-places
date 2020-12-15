@@ -5,16 +5,32 @@
     tools:context=".ui.views.places.PlacesFragment">
 
     <data>
-
+        <variable name="viewModel" type="com.unrevealedinc.myplaces.ui.views.explore.PlacesViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:foreground="@drawable/ic_synchronize"
+                android:onClick="@{() -> viewModel.onFabClicked()}"
+                app:backgroundTint="#B8B2B2"
+                app:fabSize="normal" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/places_rv"
@@ -38,7 +54,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </FrameLayout>
 </layout>

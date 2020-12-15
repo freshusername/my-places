@@ -13,4 +13,8 @@ interface PlacesService {
 
     @GET("place/{id}")
     suspend fun getPlace(@Path("id") id: Long): Response<Place>
+
+    @ExperimentalUnsignedTypes
+    @GET("/api/v0/places/nearby?lat={lat}&lng={lng}&radius={radius}")
+    suspend fun getNearbyPlaces(@Path("lat") lat: Double, @Path("lng") lng: Double, @Path("radius") radius: UInt ): Response<Place>
 }

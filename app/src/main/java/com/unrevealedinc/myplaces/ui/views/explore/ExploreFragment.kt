@@ -60,6 +60,11 @@ class ExploreFragment : Fragment(), PlacesAdapter.PlaceItemListener {
         })
     }
 
+    private fun onFabClicked()
+    {
+        viewModel.count = adapter.getItemCount()
+    }
+
     override fun onClickedPlace(placeId: Long) {
         findNavController().navigate(
             R.id.action_exploreFragment_to_placeDetailFragment,

@@ -26,6 +26,15 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="small_place_image_descr">Small place image</string>
+    <string name="place_type_and_is_open">TextView</string>
+    <string name="place_type_and_is_open_descr">Short place info</string>
+    <string name="place_name_header">TextView</string>
+    <string name="place_name_header_descr">Place name</string>
+    <string name="place_photo_header">Place Header</string>
+    <string name="place_type_chip_str">chip value</string>
+    <string name="choose_theme_text">Select theme</string>
+    <string name="disable_dark_mode_text">Disable dark mode</string>
 
 
 </resources>

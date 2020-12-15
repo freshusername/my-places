@@ -25,9 +25,10 @@ class MainActivity : AppCompatActivity() {
     private var bundleSavedCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme_NoActionBar) // Set AppTheme before setting content view.
         super.onCreate(savedInstanceState)
 
-        Timber.i("onCreate Called")
+        //Timber.i("onCreate Called")
 
         //init timers
         timerActive = ActiveTimer(this.lifecycle)
@@ -46,30 +47,30 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         //saves key-value to bundle
-        outState.putInt(SAVED_COUNT, bundleSavedCount++)
-        Timber.i("onSaveInstanceState called")
+        //outState.putInt(SAVED_COUNT, bundleSavedCount++)
+        //Timber.i("onSaveInstanceState called")
 
     }
 
     override fun onStart() {
         super.onStart()
-        Timber.i("onStart Called")
-        Timber.i("bundleSavedCount = $bundleSavedCount")
+        //Timber.i("onStart Called")
+        //Timber.i("bundleSavedCount = $bundleSavedCount")
     }
 
     override fun onResume() {
         super.onResume()
-        Timber.i("onResume Called")
+        //Timber.i("onResume Called")
     }
 
     override fun onPause() {
         super.onPause()
-        Timber.i("onPause Called")
+        //Timber.i("onPause Called")
     }
 
     override fun onStop() {
         super.onStop()
-        Timber.i("onStop Called")
+        //Timber.i("onStop Called")
     }
 
     override fun onDestroy() {
@@ -81,6 +82,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        Timber.i("onRestart Called")
+        //Timber.i("onRestart Called")
     }
 }
